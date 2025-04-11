@@ -2,13 +2,13 @@
 <img src="assets/logo.png">
 <h3>OCTAMamba</h3>
 
-[[`Paper`](https://arxiv.org/abs/2409.08000)] 
-[[`Project Page`](https://zs1314.github.io/OCTAMamba/)]
+[[`Paper`](https://arxiv.org/)] 
+[[`Project Page`](https://github.com/acvai/OCTAMamba/)]
 
 </div>
 
 ## Abstract
-Optical Coherence Tomography Angiography (OCTA) is a crucial imaging technique for visualizing retinal vasculature and diagnosing eye diseases such as diabetic retinopathy and glaucoma. However, precise segmentation of OCTA vasculature remains challenging due to the multi-scale vessel structures and noise from poor image quality and eye lesions. In this study, we proposed OCTAMamba, a novel U-shaped network based on the Mamba architecture, designed to segment vasculature in OCTA accurately. OCTAMamba integrates a Quad Stream Efficient Mining Embedding Module for local feature extraction, a Multi-Scale Dilated Asymmetric Convolution Module to capture multi-scale vasculature, and a Focused Feature Recalibration Module to filter noise and highlight target areas. Our method achieves efficient global modeling and local feature extraction while maintaining linear complexity, making it suitable for low-computation medical applications. Extensive experiments on the OCTA 3M, OCTA 6M, and ROSSA datasets demonstrated that OCTAMamba outperforms state-of-the-art methods, providing a new reference for efficient OCTA segmentation. Code is available at https://github.com/zs1314/OCTAMamba
+
 ## Overview
 <p align="center">
   <img src="assets/overall.png" alt="accuracy" width="100%">
@@ -151,7 +151,7 @@ python run_benchmark.py
 🐥: Before training and testing, configure the relevant parameters in the script
 
 ###  `D. Get model weights`
-You can download the model weights (OCTAMamba) from here: [Baidu Netdisk](https://pan.baidu.com/s/1Ck1jSQU-m61LU-R253llRA?pwd=un3f) or [Google Drive](https://drive.google.com/file/d/1vrouJ9TKi_Dyj0ZWP0D-upRLFWB45Ryg/view?usp=drive_link)
+You can download the model weights (OCTAMamba) from here: [Google Drive](https://drive.google.com/drive_link)
 
 ###  `E. Model Predict`
 ```bash
@@ -164,7 +164,7 @@ This project is based on VMamba ([paper](https://arxiv.org/abs/2401.10166), [cod
 
 ## 🙋Q & A
 
-***For any questions, please feel free to [contact us.](zs@stu.njau.edu.cn)***
+
 
 ## 📜Reference
 
@@ -172,10 +172,10 @@ If this code or paper contributes to your research, please kindly consider citin
 
 ```
 @article{zou2024octamamba,
-  title={OCTAMamba: A State-Space Model Approach for Precision OCTA Vasculature Segmentation},
-  author={Zou, Shun and Zhang, Zhuo and Gao, Guangwei},
-  journal={arXiv preprint arXiv:2409.08000},
-  year={2024}
+  title={HV_OCTAMamba:Medical Segmentation Model},
+  author={},
+  journal={arXiv preprint},
+  year={}
 }
 ```
 
