@@ -1,0 +1,10 @@
+# ninja log v5
+10	15443	1739207522528349100	/mnt/c/Users/Amine/Projects/OCTAMamba/kernels/selective_scan/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/cus/selective_scan_core_fwd.o	91f84311e5d9d087
+7	22126	1739207529205614000	/mnt/c/Users/Amine/Projects/OCTAMamba/kernels/selective_scan/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/cus/selective_scan.o	391e5161d237b9a6
+9	48228	1739207555300975000	/mnt/c/Users/Amine/Projects/OCTAMamba/kernels/selective_scan/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/cus/selective_scan_core_bwd.o	ad200f445fa23a73
+30	15045	1739207571563373800	/mnt/c/Users/Amine/Projects/OCTAMamba/kernels/selective_scan/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/cusndstate/selective_scan_core_fwd.o	d68e425625292c2e
+31	21855	1739207578367799100	/mnt/c/Users/Amine/Projects/OCTAMamba/kernels/selective_scan/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/cusndstate/selective_scan_ndstate.o	802c071b71669297
+29	49608	1739207606114508800	/mnt/c/Users/Amine/Projects/OCTAMamba/kernels/selective_scan/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/cusndstate/selective_scan_core_bwd.o	6ea2b1342a45f98e
+32	21595	1739207628909624800	/mnt/c/Users/Amine/Projects/OCTAMamba/kernels/selective_scan/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/cusoflex/selective_scan_oflex.o	bf9bb13cabc5c41a
+31	23171	1739207630487536200	/mnt/c/Users/Amine/Projects/OCTAMamba/kernels/selective_scan/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/cusoflex/selective_scan_core_fwd.o	23bde63522b741a3
+29	75157	1739207682467875000	/mnt/c/Users/Amine/Projects/OCTAMamba/kernels/selective_scan/build/temp.linux-x86_64-cpython-310/csrc/selective_scan/cusoflex/selective_scan_core_bwd.o	37a071f4a18b99a1
