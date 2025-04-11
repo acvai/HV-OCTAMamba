@@ -1,6 +1,6 @@
 <div align="center">
 <img src="assets/logo.png">
-<h3>OCTAMamba</h3>
+<h3>HV_OCTAMamba</h3>
 
 [[`Paper`](https://arxiv.org/)] 
 [[`Project Page`](https://github.com/acvai/OCTAMamba/)]
