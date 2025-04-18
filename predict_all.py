@@ -14,6 +14,7 @@ from modelszoo.H_vmunet import *
 from model.HV_OCTAMamba import *
 from modelszoo.unetpp import *
 from model.OCTAMamba import *
+from modelszoo.Unet import *
 # from modelszoo.VM_UNetpp import *
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -28,18 +29,19 @@ class ObjectCreator:
     
 
 models = {
+    # "Unet": ObjectCreator(cls=Unet, args=dict()),
     "HV_OCTAMamba_last": ObjectCreator(cls=HV_OCTAMamba, args=dict()),
-    "OCTAMamba": ObjectCreator(cls=OCTAMamba, args=dict()),
-    "AC-Mamba":ObjectCreator(cls=AC_MambaSeg,args=dict()),
-    "VM_Unetv2": ObjectCreator(cls=VMUNetV2,args=dict(input_channels=1,num_classes=1)),
-    "Swin_Unet": ObjectCreator(cls=SwinUnet,args=dict(num_classes=1,img_size=224)),
-    "MISSFormer": ObjectCreator(cls=MISSFormer,args=dict(num_classes=1)),
-    "H2Former": ObjectCreator(cls=res34_swin_MS, args=dict(image_size=224, num_class=1)),
-    "R2U_Net": ObjectCreator(cls=R2U_Net,args=dict(img_ch=1, output_ch=1)),
-    "H_vmunet":ObjectCreator(cls=H_vmunet,args=dict(num_classes=1, input_channels=1)),
-    "UNetpp": ObjectCreator(cls=ResNet34UnetPlus, args=dict()),
-    "VM-UNet": ObjectCreator(cls=VMUNet,args=dict(input_channels=1)),
-    # "VM-UNetpp": VM_UNetpp,
+    # "OCTAMamba": ObjectCreator(cls=OCTAMamba, args=dict()),
+    # "AC-Mamba":ObjectCreator(cls=AC_MambaSeg,args=dict()),
+    # "VM_Unetv2": ObjectCreator(cls=VMUNetV2,args=dict(input_channels=1,num_classes=1)),
+    # "Swin_Unet": ObjectCreator(cls=SwinUnet,args=dict(num_classes=1,img_size=224)),
+    # "MISSFormer": ObjectCreator(cls=MISSFormer,args=dict(num_classes=1)),
+    # "H2Former": ObjectCreator(cls=res34_swin_MS, args=dict(image_size=224, num_class=1)),
+    # "R2U_Net": ObjectCreator(cls=R2U_Net,args=dict(img_ch=1, output_ch=1)),
+    # "H_vmunet":ObjectCreator(cls=H_vmunet,args=dict(num_classes=1, input_channels=1)),
+    # "UNetpp": ObjectCreator(cls=ResNet34UnetPlus, args=dict()),
+    # "VM-UNet": ObjectCreator(cls=VMUNet,args=dict(input_channels=1)),
+    ## "VM-UNetpp": VM_UNetpp,
 }
 
 
@@ -80,6 +82,19 @@ for model_name, model_class in models.items():
                 output = output.squeeze().cpu().numpy()
 
             output = (output > 0.5).astype(np.uint8) * 255
-            mask_save_path = os.path.join(output_folder, image_file)
+            
+            ### first solution: save the mask as it is (.bmp or .png)
+            # mask_save_path = os.path.join(output_folder, image_file)
+            # cv2.imwrite(mask_save_path, output)
+            # print(f"Saved: {mask_save_path}")
+            
+            ### Save with .png extension if original was .bmp
+            filename_wo_ext, ext = os.path.splitext(image_file)
+            if ext.lower() == ".bmp":
+                mask_save_name = f"{filename_wo_ext}.png"
+            else:
+                mask_save_name = image_file  # Keep original name
+            
+            mask_save_path = os.path.join(output_folder, mask_save_name)
             cv2.imwrite(mask_save_path, output)
             print(f"Saved: {mask_save_path}")

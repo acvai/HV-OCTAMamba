@@ -89,14 +89,37 @@ class SegmentationDataset(Dataset):
         end = int(end * len(self.ls_item))
         self.ls_item = self.ls_item[start:end]
 
+        ### version 1:
+        # self.transform_train = A.Compose([
+        #     A.HorizontalFlip(p=0.5),
+        #     A.VerticalFlip(p=0.5),
+        #     A.RandomRotate90(p=0.5),
+        #     A.GaussianBlur(p=0.3),
+        #     A.ElasticTransform(alpha=1, sigma=50, alpha_affine=50, p=0.2),
+        #     A.Resize(224, 224),
+        # ])
+        ### version 2:
         self.transform_train = A.Compose([
             A.HorizontalFlip(p=0.5),
             A.VerticalFlip(p=0.5),
             A.RandomRotate90(p=0.5),
-            A.GaussianBlur(p=0.3),
-            A.ElasticTransform(alpha=1, sigma=50, alpha_affine=50, p=0.2),
+            
+            A.OneOf([
+                A.GaussianBlur(blur_limit=3, p=0.3),
+                A.GaussNoise(var_limit=(10.0, 50.0), p=0.3),
+            ], p=0.3),
+
+            A.OneOf([
+                A.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.5),
+                A.CLAHE(clip_limit=2.0, tile_grid_size=(8, 8), p=0.5),
+            ], p=0.3),
+
+            A.ElasticTransform(alpha=1, sigma=30, alpha_affine=30, p=0.2),
+            A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.05, rotate_limit=15, border_mode=0, p=0.3),
+            
             A.Resize(224, 224),
         ])
+
 
         self.transform_val = A.Compose([
             A.Resize(224, 224),

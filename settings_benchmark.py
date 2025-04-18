@@ -10,6 +10,7 @@ from modelszoo.R2UNet import *
 from modelszoo.H_vmunet import *
 from modelszoo.unetpp import *
 from model.OCTAMamba import *
+from modelszoo.Unet import *
 
 class ObjectCreator:
     def __init__(self, args, cls) -> None:
@@ -21,6 +22,7 @@ class ObjectCreator:
 
 models = {
     "HV_OCTAMamba_last": ObjectCreator(cls=HV_OCTAMamba, args=dict()),
+    # "Unet": ObjectCreator(cls=Unet, args=dict()),
     # "OCTAMamba": ObjectCreator(cls=OCTAMamba, args=dict()),
     # "H_vmunet":ObjectCreator(cls=H_vmunet,args=dict(num_classes=1, input_channels=1)),
     # "MISSFormer":ObjectCreator(cls=MISSFormer,args=dict(num_classes=1)),
@@ -31,10 +33,8 @@ models = {
     # "VM-UNet":ObjectCreator(cls=VMUNet,args=dict(input_channels=1)),
     # "H2Former": ObjectCreator(cls=res34_swin_MS, args=dict(image_size=224, num_class=1)),
     # "VM_Unetv2":ObjectCreator(cls=VMUNetV2,args=dict(input_channels=1,num_classes=1)),
-    # "H_vmunet":ObjectCreator(cls=H_vmunet,args=dict(
-    #     num_classes=1, input_channels=1
-    # ))
-        # "U-Mmaba":ObjectCreator(cls=UltraLight_VM_UNet,args=dict(
+    
+    # "U-Mmaba":ObjectCreator(cls=UltraLight_VM_UNet,args=dict(
     #     num_classes=1, input_channels=1
     # )),
 
