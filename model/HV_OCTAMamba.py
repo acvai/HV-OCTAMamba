@@ -10,13 +10,14 @@ from typing import Optional, Callable
 import torch.nn.functional as F
 from timm.models.layers import DropPath, to_2tuple, trunc_normal_
 from torch import Tensor
-from model.MDR import MultiScaleConvModule
-from model.DAM import DualAttentionModule
+from model.MDR import MultiScaleConvModule as MSDAC
+from model.DAM import DualAttentionModule as FRF
 from model.wtconv2d import *
 ###########
 import torch.fft
 from .H_vmunet import H_SS2D
 ##########
+
 
 try:
     from mamba_ssm.ops.selective_scan_interface import selective_scan_fn, selective_scan_ref
@@ -56,8 +57,8 @@ class SEAttention(nn.Module):
         return x * y.expand_as(x)
 
 
-# Quad Stream Efficient Mining Embedding
-class QSEME(nn.Module):
+# Multi-Stream Efficient Embedding
+class MSEE(nn.Module):
     def __init__(self, out_c):
         super().__init__()
 
@@ -172,12 +173,13 @@ class VSSBlock(nn.Module):
         self.self_attention = H_SS2D(dim=hidden_dim, order=3, d_state=d_state)   #this H_SS2D comes from H_vmunet model that takes it from vmamba.py: 
         self.drop_path = DropPath(drop_path)
         self.hidden_dim = hidden_dim
+        self.frf = FRF(in_channels=hidden_dim, reduction=4, kernel_size=7)
 
     def forward(self, input: torch.Tensor):
-        ### this block was added to make the input compatible with the H_SS2D module on OCTAMamba:
         x = self.ln_1(input) # B, H, W, C
         x = x.permute(0, 3, 1, 2)  # B C H W
-        x = self.self_attention(x)
+        # x2 = self.frf(x)
+        x = self.self_attention(x) #* x2
         x = x.permute(0, 2, 3, 1)  # B C H W
         x_mamba = input + self.drop_path(x)
         return x_mamba
@@ -188,7 +190,7 @@ class HV_OCTAMambaBlock(nn.Module):
     def __init__(self, in_c, out_c, ):
         super().__init__()
         self.in_c = in_c
-        self.conv = MultiScaleConvModule(in_channels=in_c, out_channels=out_c)
+        self.conv = MSDAC(in_channels=in_c, out_channels=out_c)
         self.ln = nn.LayerNorm(out_c)
         self.act = nn.GELU()
         self.block = VSSBlock(hidden_dim=out_c)
@@ -253,7 +255,7 @@ class DecoderBlock(nn.Module):
 class HV_OCTAMamba(nn.Module):
     def __init__(self):
         super().__init__()
-        self.qseme = QSEME(out_c=16)
+        self.msee = MSEE(out_c=16)
 
         """Encoder"""
         self.e1 = EncoderBlock(16, 32)
@@ -271,7 +273,7 @@ class HV_OCTAMamba(nn.Module):
 
     def forward(self, x):
         """Pre-Component"""
-        x = self.qseme(x)
+        x = self.msee(x)
 
         """Encoder"""
         x, skip1 = self.e1(x)
@@ -289,7 +291,7 @@ class HV_OCTAMamba(nn.Module):
         return x
 
 
-# 参数计算
+# Parameter calculation
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 

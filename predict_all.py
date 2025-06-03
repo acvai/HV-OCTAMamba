@@ -29,18 +29,19 @@ class ObjectCreator:
     
 
 models = {
-    # "Unet": ObjectCreator(cls=Unet, args=dict()),
     "HV_OCTAMamba_last": ObjectCreator(cls=HV_OCTAMamba, args=dict()),
-    # "OCTAMamba": ObjectCreator(cls=OCTAMamba, args=dict()),
-    # "AC-Mamba":ObjectCreator(cls=AC_MambaSeg,args=dict()),
-    # "VM_Unetv2": ObjectCreator(cls=VMUNetV2,args=dict(input_channels=1,num_classes=1)),
-    # "Swin_Unet": ObjectCreator(cls=SwinUnet,args=dict(num_classes=1,img_size=224)),
-    # "MISSFormer": ObjectCreator(cls=MISSFormer,args=dict(num_classes=1)),
-    # "H2Former": ObjectCreator(cls=res34_swin_MS, args=dict(image_size=224, num_class=1)),
-    # "R2U_Net": ObjectCreator(cls=R2U_Net,args=dict(img_ch=1, output_ch=1)),
-    # "H_vmunet":ObjectCreator(cls=H_vmunet,args=dict(num_classes=1, input_channels=1)),
-    # "UNetpp": ObjectCreator(cls=ResNet34UnetPlus, args=dict()),
-    # "VM-UNet": ObjectCreator(cls=VMUNet,args=dict(input_channels=1)),
+    "Unet": ObjectCreator(cls=Unet, args=dict()),
+    "OCTAMamba": ObjectCreator(cls=OCTAMamba, args=dict()),
+    "AC-Mamba":ObjectCreator(cls=AC_MambaSeg,args=dict()),
+    "VM_Unetv2": ObjectCreator(cls=VMUNetV2,args=dict(input_channels=1,num_classes=1)),
+    "Swin_Unet": ObjectCreator(cls=SwinUnet,args=dict(num_classes=1,img_size=224)),
+    "MISSFormer": ObjectCreator(cls=MISSFormer,args=dict(num_classes=1)),
+    "H2Former": ObjectCreator(cls=res34_swin_MS, args=dict(image_size=224, num_class=1)),
+    "R2U_Net": ObjectCreator(cls=R2U_Net,args=dict(img_ch=1, output_ch=1)),
+    "H_vmunet":ObjectCreator(cls=H_vmunet,args=dict(num_classes=1, input_channels=1)),
+    "UNetpp": ObjectCreator(cls=ResNet34UnetPlus, args=dict()),
+    "VM-UNet": ObjectCreator(cls=VMUNet,args=dict(input_channels=1)),
+
     ## "VM-UNetpp": VM_UNetpp,
 }
 

@@ -1,18 +1,22 @@
-# Ignore large data and output directories
-dataset/**
+# === Ignore data and output directories ===
+dataset/
 overlays/
 overlays_v1/
 overlays_v2/
 output/
 result/
 log/
-Stats/dice_scores
-Stats/figures
-Stats/stats_output
-Stats/z_TRASH
-log
-__pycache__
-result
+
+# === Ignore specific stats subfolders ===
+Stats/dice_scores/
+Stats/figures/
+Stats/stats_output/
+Stats/z_TRASH/
+
+# === Python cache ===
+__pycache__/
+
+# === Log and result files ===
 *.log
 *.npy
 *.pt

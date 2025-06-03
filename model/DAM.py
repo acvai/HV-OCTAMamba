@@ -56,7 +56,7 @@ class DualAttentionModule(nn.Module):
 
 # Testing the Dual Attention Module
 if __name__ == "__main__":
-    input_tensor = torch.randn(1, 64, 32, 32)  # Example input
+    input_tensor = torch.randn(1, 64, 224 , 224)  # Example input
     dam = DualAttentionModule(64)
     output = dam(input_tensor)
     print(output.shape)  # Should be the same as input shape

@@ -81,6 +81,7 @@ class H_SS2D(nn.Module):
 
         self.scale = s
 
+        ### uncomment to print the order and dims:
         print('[H_SS2D]', order, 'order with dims=', self.dims, 'scale=%.4f'%self.scale)
 
 

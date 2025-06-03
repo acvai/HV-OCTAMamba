@@ -8,3 +8,4 @@ from .Swin_UNet import SwinUnet
 from .unetpp import ResNet34UnetPlus
 from .VM_UNet import VMUNet
 from .VM_UNet2 import VMUNetV2
+from .Unet import Unet

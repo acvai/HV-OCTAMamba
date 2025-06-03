@@ -32,7 +32,7 @@ models = {
     # "H2Former": ObjectCreator(cls=res34_swin_MS, args=dict(image_size=224, num_class=1)),
     # "VM_Unetv2":ObjectCreator(cls=VMUNetV2,args=dict(input_channels=1,num_classes=1)),
     # "OCTAMamba": ObjectCreator(cls=OCTAMamba, args=dict()),
-    "HV_OCTAMamba_last_ablation": ObjectCreator(cls=HV_OCTAMamba, args=dict()),
+    "HV_OCTAMamba_last_w_DA": ObjectCreator(cls=HV_OCTAMamba, args=dict()),
     
     # "U-Mmaba":ObjectCreator(cls=UltraLight_VM_UNet,args=dict(
     #     num_classes=1, input_channels=1
