@@ -1,6 +1,5 @@
 <div align="center">
-  <img src="assets/logo.png" alt="HV_OCTAMamba Logo">
-  <h3>HV_OCTAMamba</h3>
+  <h3>HV-OCTAMamba</h3>
   <p>
     <a href="https://arxiv.org/">[Paper]</a> •
     <a href="https://github.com/acvai/HV-OCTAMamba/">[Project Page]</a>
@@ -14,8 +13,9 @@
 <p align="center">
   <img src="assets/GA_white.png" width="100%" alt="Graphical Abstract">
 </p>
-
 ---
+The imaging technique called optical coherence tomography angiography (OCTA) has been used extensively in ophthalmology to identify eye conditions such as aged-macular degeneration, vascular oclusion or diabetic retinopathy. However, the multi-scale vascular architecture and noise from low image quality and eye diseases make it difficult to precisely segment the vasculature. In order to accurately segment the vasculature in OCTA, we introduced HV-OCTAMamba, a novel U-shaped network based on the Vision Mamba architecture. HV-OCTAMamba inspired from the state-of-the-art models OCTAMamba and H-vmunet, integrates a Multi-Stream Efficient Embedding Module to extract local features, a Multi-Scale Dilated Asymmetric Convolution Module for multi-scale vasculature capturing, a Feature Recalibration and Filtering Module to filter noise and highlight target areas, and the core component High-Order Visual State Space (H-VSS) which gradually reduces the introduction of redundant information through higher-order interactions during SS2D operations. Our approach is appropriate for low-computation medical applications since it efficiently extracts the global and local features while preserving linear complexity. Extensive tests on the OCTA 3M, OCTA 6M, and ROSSA datasets showed that HV-OCTAMamba performs better than the most advanced methods in the state-of-the-art, offering a new benchmark for effective OCTA segmentation. Notably, HV-OCTAMamba achieved Dice coefficients of 87.45%, 83.18%, and 90.15% on the OCTA 3M, OCTA 6M, and ROSSA datasets, respectively. You may get the code at [HV-OCTAMamba code](https://github.com/acvai/HV-OCTAMamba/).
+
 
 ## 📋 Overview
 
@@ -36,7 +36,7 @@
 ## 🎨 Qualitative Visualization
 
 <div align="center">
-  <img src="assets/Figure_3.png" width="1000" alt="Qualitative Visualizations">
+  <img src="assets/Figure_OCTA.png" width="1000" alt="Qualitative Visualizations">
 </div>
 
 ---
@@ -66,7 +66,10 @@ conda activate hvoctamamba
 pip install -r requirements.txt
 cd kernels/selective_scan && pip install .
 ```
-
+if creating anaconda env from `environment.yml` (this option might not work in every PC)
+```bash
+conda env create -f environment.yml
+```
 
 
 ### `B. Data Preparation`
@@ -128,7 +131,7 @@ python run_benchmark_wo_DataAugment.py
 python run_benchmark_w_DataAugment.py 
 ```
 
-⚠️: Make sure to configure all necessary parameters before execution.
+> ⚠️: Make sure to configure all necessary parameters before execution.
 
 Results will be stored in the `results/` directory in `.json` format.
 
