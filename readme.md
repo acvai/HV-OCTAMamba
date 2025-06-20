@@ -54,9 +54,9 @@ This repository builds upon the [OCTAMamba](https://github.com/zs1314/OCTAMamba)
 ```bash
 git clone https://github.com/acvai/HV-OCTAMamba.git
 cd HV_OCTAMamba
+```
 
-
-**Step 2: Environment Setup:**
+#### 2. Environment Setup
 
 Create a new Conda environment and install the required dependencies:
 
@@ -66,6 +66,7 @@ conda activate hvoctamamba
 pip install -r requirements.txt
 cd kernels/selective_scan && pip install .
 ```
+
 if creating anaconda env from `environment.yml` (this option might not work in every PC)
 ```bash
 conda env create -f environment.yml
