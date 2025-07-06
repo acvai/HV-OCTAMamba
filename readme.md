@@ -169,7 +169,7 @@ If you find this project helpful, please consider citing our paper and giving th
 @article{mansouri2025hv-octamamba,
   title={HV_OCTAMamba:Medical Segmentation Model},
   author={Mansouri et al.},
-  journal={Coputers in Biology and Medicine},
+  journal={},
   year={2025}
 }
 ```
