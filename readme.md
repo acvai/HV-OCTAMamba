@@ -166,11 +166,10 @@ If you find this project helpful, please consider citing our paper and giving th
 
 
 ```
-@article{mansouri2025hv-octamamba,
-  title={HV_OCTAMamba:Medical Segmentation Model},
-  author={Mansouri et al.},
-  journal={},
-  year={2025}
+@article{mansouri5476693hv,
+  title={HV-OCTAMamba: A High-Order Vision Mamba Network for Robust Retinal Vasculature Segmentation in OCTA Images},
+  author={Mansouri, Amine and Arnould, Louis and Lalande, Alain and M{\'e}riaudeau, Fabrice},
+  journal={Available at SSRN 5476693}
 }
 ```
 
