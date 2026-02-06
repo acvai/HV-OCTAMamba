@@ -1,7 +1,7 @@
 <div align="center">
   <h3>HV-OCTAMamba</h3>
   <p>
-    <a href="https://arxiv.org/">[Paper]</a> •
+    <a href="https://www.sciencedirect.com/science/article/pii/S1746809426001278">[Paper]</a> •
     <a href="https://github.com/acvai/HV-OCTAMamba/">[Project Page]</a>
   </p>
 </div>
@@ -166,10 +166,18 @@ If you find this project helpful, please consider citing our paper and giving th
 
 
 ```
-@article{mansouri5476693hv,
-  title={HV-OCTAMamba: A High-Order Vision Mamba Network for Robust Retinal Vasculature Segmentation in OCTA Images},
-  author={Mansouri, Amine and Arnould, Louis and Lalande, Alain and M{\'e}riaudeau, Fabrice},
-  journal={Available at SSRN 5476693}
+@article{MANSOURI2026109573,
+title = {HV-OCTAMamba: A high-order vision Mamba network for robust retinal vasculature segmentation in OCTA images},
+journal = {Biomedical Signal Processing and Control},
+volume = {117},
+pages = {109573},
+year = {2026},
+issn = {1746-8094},
+doi = {https://doi.org/10.1016/j.bspc.2026.109573},
+url = {https://www.sciencedirect.com/science/article/pii/S1746809426001278},
+author = {Amine Mansouri and Louis Arnould and Alain Lalande and Fabrice Meriaudeau},
+keywords = {Optical coherence tomography angiography (OCTA), Retinal vessel (RV) segmentation, Vision Mamba, State space models (SSM), U-net architecture, Multi-scale feature extraction, Deep learning in ophthalmology, Lightweight medical models, Noise-robust segmentation},
+abstract = {The imaging technique called optical coherence tomography angiography (OCTA) has been used extensively in ophthalmology to identify eye conditions such as age-related macular degeneration, vascular occlusion or diabetic retinopathy. However, the multi-scale vascular architecture and noise from low image quality and eye diseases make it difficult to precisely segment the vasculature. In order to accurately segment the vasculature in OCTA, we introduced HV-OCTAMamba, a novel U-shaped network based on the Vision Mamba architecture. Inspired from the state-of-the-art models OCTAMamba and H-vmunet, HV-OCTAMamba integrates a Multi-Stream Efficient Embedding Module to extract local features, a Multi-Scale Dilated Asymmetric Convolution Module for multi-scale vasculature capturing, a Feature Recalibration and Filtering Module to filter noise and highlight target areas. The core component, the High-Order Visual State Space (H-VSS), improves feature consistency by modeling long-range dependencies through structured two-dimensional state-space (SS2D) operations. Our approach is appropriate for low-computation medical applications since it efficiently extracts the global and local features while preserving linear complexity. Extensive tests on the OCTA 3M, OCTA 6M, and ROSSA datasets showed that HV-OCTAMamba performs better than the most advanced methods in the state-of-the-art, offering a new benchmark for effective OCTA segmentation. Notably, HV-OCTAMamba achieved Dice coefficients of 87.45%, 83.18%, and 90.15% on the OCTA 3M, OCTA 6M, and ROSSA datasets, respectively. You may get the code at GitHub.11Code available at https://github.com/acvai/HV-OCTAMamba/.}
 }
 ```
 
